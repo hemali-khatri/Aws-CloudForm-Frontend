@@ -15,6 +15,7 @@
           "options": {
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
+            "outputPath": "dist/frontend",
             "assets": [
               {
                 "glob": "**/*",
@@ -32,6 +33,7 @@
           },
           "configurations": {
             "production": {
+              "outputPath": "dist/frontend",
               "budgets": [
                 {
                   "type": "initial",
