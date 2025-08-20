@@ -16,4 +16,4 @@ phases:
 artifacts:
   files:
     - '**/*'
-  base-directory: dist/frontend  # <-- Replace with your actual Angular app output folder name
+  # base-directory: dist/frontend  # <-- Replace with your actual Angular app output folder name
