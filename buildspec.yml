@@ -6,17 +6,16 @@ phases:
     runtime-versions:
       nodejs: 22  # Adjust Node.js version as needed
     commands:
-      - echo Installing dependencies...
-      - npm install  # Install all project dependencies specified in package.json
-      - npm install @angular/cli --save-dev  # Ensure Angular CLI is installed as a devDependency
-      - echo Dependencies installed.
+      - apt-get update
+      - apt-get install -y nodejs npm
+      - npm install -g @angular/cli@latest
+      - npm install
 
   # Build phase
   build:
     commands:
       - echo Building the Angular app...
-      - npx ng build  # Ensure you're using the correct local CLI version
-      - ls -R dist  # Debug: Check the build output folder to ensure the build succeeds
+      - ng build  # Ensure you're using the correct local CLI version
       - echo Build completed.
 
   # Post-build phase (optional)
@@ -27,4 +26,4 @@ phases:
 artifacts:
   files:
     - '**/*'  # Include all files for uploading as artifacts
-  base-directory: dist/frontend  # Ensure this is the correct output directory
+  # base-directory: dist/frontend  # Ensure this is the correct output directory
