@@ -1,19 +1,28 @@
 version: 0.2
 
 phases:
+  # Install phase
   install:
     runtime-versions:
-      nodejs: 22
+      nodejs: 22  # Adjust Node.js version as needed
     commands:
       - echo Installing dependencies...
-      # - npm install -g @angular/cli
-      - npm install
+      - npm install  # Install all project dependencies specified in package.json
+      - npm install -g @angular/cli  # Ensure Angular CLI is installed globally
+
+  # Build phase
   build:
     commands:
       - echo Building the Angular app...
-      - ng build
+      - ng build --configuration production  # Use npx to run Angular CLI commands directly from node_modules
+      - echo Build completed.
+
+  # Post-build phase (optional)
+  post_build:
+    commands:
+      - echo Post build phase...
 
 artifacts:
   files:
-    - '**/*'
-  # base-directory: dist/frontend  # <-- Replace with your actual Angular app output folder name
+    - '**/*'  # Include all files for uploading as artifacts
+  base-directory: dist/frontend  # Adjust this to your actual build output folder
