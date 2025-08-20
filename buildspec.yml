@@ -8,13 +8,13 @@ phases:
     commands:
       - echo Installing dependencies...
       - npm install  # Install all project dependencies specified in package.json
-      - npm install -g @angular/cli  # Ensure Angular CLI is installed globally
+      - echo Dependencies installed.
 
   # Build phase
   build:
     commands:
       - echo Building the Angular app...
-      - ng build --configuration production  # Use npx to run Angular CLI commands directly from node_modules
+      - npx ng build  # Use npx to ensure the correct CLI version is used
       - echo Build completed.
 
   # Post-build phase (optional)
@@ -25,4 +25,4 @@ phases:
 artifacts:
   files:
     - '**/*'  # Include all files for uploading as artifacts
-  base-directory: dist/frontend  # Adjust this to your actual build output folder
+  # base-directory: dist/frontend  # Adjust this if your output folder differs from dist/frontend
