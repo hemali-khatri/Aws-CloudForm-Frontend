@@ -2,16 +2,18 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      nodejs: 16
     commands:
       - echo Installing dependencies...
-      - npm install  # This installs the dependencies for your Angular app
+      - npm install -g @angular/cli
+      - npm install
   build:
     commands:
-      - echo Building Angular app...
-      - npm run build --prod  # Builds the app for production
+      - echo Building the Angular app...
+      - ng build --prod
 
 artifacts:
   files:
-    - '**/*'  # Include all files in the build folder
-  base-directory: 'dist/frontend'  # Adjust this path to match your Angular app's build output folder
-  discard-paths: no
+    - '**/*'
+  base-directory: dist/frontend  # <-- Replace with your actual Angular app output folder name
