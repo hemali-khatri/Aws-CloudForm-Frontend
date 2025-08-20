@@ -10,12 +10,12 @@ phases:
       - npm install  # Install all project dependencies specified in package.json
       - npm install @angular/cli --save-dev  # Ensure Angular CLI is installed as a devDependency
       - echo Dependencies installed.
-      
+
   # Build phase
   build:
     commands:
       - echo Building the Angular app...
-      - npx ng build --configuration production  # Ensure you're using the correct local CLI version
+      - npx ng build  # Ensure you're using the correct local CLI version
       - ls -R dist  # Debug: Check the build output folder to ensure the build succeeds
       - echo Build completed.
 
